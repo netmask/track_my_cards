@@ -1,0 +1,42 @@
+!!!
+%html.no-js{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    = csrf_meta_tags
+    = action_cable_meta_tag
+    %link{:href => "http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css", :rel => "stylesheet"}/
+    %link{:href => "http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css", :rel => "stylesheet", :type => "text/css"}/
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  %body
+    .top-bar
+      .row
+        .top-bar-left
+          %ul.dropdown.menu{"data-dropdown-menu" => ""}
+            %li.menu-text Yeti Store
+            %li.has-submenu
+              %a{:href => "#"} One
+              %ul.submenu.menu.vertical{"data-submenu" => ""}
+                %li
+                  %a{:href => "#"} One
+                %li
+                  %a{:href => "#"} Two
+                %li
+                  %a{:href => "#"} Three
+            %li
+              %a{:href => "#"} Two
+            %li
+              %a{:href => "#"} Three
+        .top-bar-right
+          %ul.menu
+            %li
+              %input{:placeholder => "Search", :type => "search"}/
+            %li
+              %button.button{:type => "button"} Search
+    %br/
+    .column.row
+      = yield
+    %script{:src => "https://code.jquery.com/jquery-2.1.4.min.js"}
+    %script{:src => "http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"}
+    :javascript
+      $(document).foundation();
