@@ -1,0 +1,11 @@
+= simple_form_for(@income) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :ammount
+    = f.input :recurrent
+    = f.input :recurrent_start_date
+    = f.input :recurrent_days
+    = f.input :description
+    = f.input :name
+  .form-actions
+    = f.button :submit

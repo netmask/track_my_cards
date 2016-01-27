@@ -17,7 +17,7 @@ class BudgetsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create budget" do
     assert_difference('Budget.count') do
-      post budgets_url, params: { budget: {  } }
+      post budgets_url, params: { budget: { name: @budget.name, reccurrent: @budget.reccurrent, recurrent_in_days: @budget.recurrent_in_days } }
     end
 
     assert_redirected_to budget_path(Budget.last)
@@ -34,7 +34,7 @@ class BudgetsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update budget" do
-    patch budget_url(@budget), params: { budget: {  } }
+    patch budget_url(@budget), params: { budget: { name: @budget.name, reccurrent: @budget.reccurrent, recurrent_in_days: @budget.recurrent_in_days } }
     assert_redirected_to budget_path(@budget)
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104183457) do
+ActiveRecord::Schema.define(version: 20160124174151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20160104183457) do
     t.integer  "recurrent_in_days"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "planed_balance"
+    t.date     "start_date"
     t.index ["account_id"], name: "index_budgets_on_account_id", using: :btree
   end
 
@@ -44,16 +46,36 @@ ActiveRecord::Schema.define(version: 20160104183457) do
     t.index ["account_id"], name: "index_entries_on_account_id", using: :btree
   end
 
-  create_table "founding_soruces", force: :cascade do |t|
+  create_table "founding_sources", force: :cascade do |t|
     t.integer  "account_id"
     t.string   "name"
     t.integer  "balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_founding_soruces_on_account_id", using: :btree
+    t.index ["account_id"], name: "index_founding_sources_on_account_id", using: :btree
+  end
+
+  create_table "incomes", force: :cascade do |t|
+    t.integer  "ammount"
+    t.boolean  "recurrent"
+    t.date     "recurrent_start_date"
+    t.integer  "recurrent_days"
+    t.string   "description"
+    t.string   "name"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "linked_accounts", force: :cascade do |t|
+    t.integer  "first_account_id"
+    t.integer  "last_account_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["first_account_id"], name: "index_linked_accounts_on_first_account_id", using: :btree
+    t.index ["last_account_id"], name: "index_linked_accounts_on_last_account_id", using: :btree
   end
 
   add_foreign_key "budgets", "accounts"
   add_foreign_key "entries", "accounts"
-  add_foreign_key "founding_soruces", "accounts"
+  add_foreign_key "founding_sources", "accounts"
 end

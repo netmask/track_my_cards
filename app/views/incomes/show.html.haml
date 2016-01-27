@@ -1,0 +1,22 @@
+%p#notice= notice
+%p
+  %strong Ammount:
+  = @income.ammount
+%p
+  %strong Recurrent:
+  = @income.recurrent
+%p
+  %strong Recurrent start date:
+  = @income.recurrent_start_date
+%p
+  %strong Recurrent days:
+  = @income.recurrent_days
+%p
+  %strong Description:
+  = @income.description
+%p
+  %strong Name:
+  = @income.name
+= link_to 'Edit', edit_income_path(@income)
+|
+= link_to 'Back', incomes_path

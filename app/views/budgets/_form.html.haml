@@ -1,11 +1,17 @@
-= form_for(budget) do |f|
-  - if budget.errors.any?
+= simple_form_for(@budget) do |f|
+  - if @budget.errors.any?
     #error_explanation
       %h2
-        = pluralize(budget.errors.count, "error")
-        prohibited this budget from being saved:
+        = pluralize(@budget.errors.count, "error")
+        prohibited this account from being saved:
       %ul
-        - budget.errors.full_messages.each do |message|
+        - @budget.errors.full_messages.each do |message|
           %li= message
-  .actions
-    = f.submit
+  .form-inputs
+    = f.input :name
+    = f.input :reccurrent
+    = f.input :recurrent_in_days
+    = f.input :planed_balance
+    = f.input :start_date
+  .form-actions
+    = f.button :submit

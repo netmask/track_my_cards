@@ -25,6 +25,7 @@ class BudgetsController < ApplicationController
   # POST /budgets.json
   def create
     @budget = Budget.new(budget_params)
+    @budget.account = Account.new(name: @budget.name, balance: 0, nature: :debit)
 
     respond_to do |format|
       if @budget.save
@@ -69,6 +70,6 @@ class BudgetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def budget_params
-      params[:budget]
+      params.require(:budget).permit(:name, :reccurrent, :recurrent_in_days, :planed_balance, :start_date)
     end
 end

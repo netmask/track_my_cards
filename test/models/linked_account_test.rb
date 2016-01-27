@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FoundingSoruceTest < ActiveSupport::TestCase
+class LinkedAccountTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

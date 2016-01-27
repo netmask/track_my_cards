@@ -1,4 +1,13 @@
 %p#notice= notice
+%p
+  %strong Account:
+  = @founding_source.account
+%p
+  %strong Name:
+  = @founding_source.name
+%p
+  %strong Balance:
+  = @founding_source.balance
 = link_to 'Edit', edit_founding_source_path(@founding_source)
 |
 = link_to 'Back', founding_sources_path

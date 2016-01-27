@@ -1,4 +1,13 @@
 %p#notice= notice
+%p
+  %strong Name:
+  = @budget.name
+%p
+  %strong Reccurrent:
+  = @budget.reccurrent
+%p
+  %strong Recurrent in days:
+  = @budget.recurrent_in_days
 = link_to 'Edit', edit_budget_path(@budget)
 |
 = link_to 'Back', budgets_path

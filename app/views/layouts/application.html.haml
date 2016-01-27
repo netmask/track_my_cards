@@ -12,27 +12,14 @@
     .top-bar
       .row
         .top-bar-left
-          %ul.dropdown.menu{"data-dropdown-menu" => ""}
-            %li.menu-text Yeti Store
-            %li.has-submenu
-              %a{:href => "#"} One
-              %ul.submenu.menu.vertical{"data-submenu" => ""}
-                %li
-                  %a{:href => "#"} One
-                %li
-                  %a{:href => "#"} Two
-                %li
-                  %a{:href => "#"} Three
+          %ul.dropdown.menu
+            %li.menu-text
+              Track My Cards!
             %li
-              %a{:href => "#"} Two
+              = link_to 'Founding Sources', founding_sources_path
             %li
-              %a{:href => "#"} Three
-        .top-bar-right
-          %ul.menu
-            %li
-              %input{:placeholder => "Search", :type => "search"}/
-            %li
-              %button.button{:type => "button"} Search
+              = link_to 'Budgets', budgets_path
+
     %br/
     .column.row
       = yield

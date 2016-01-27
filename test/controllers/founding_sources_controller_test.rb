@@ -17,7 +17,7 @@ class FoundingSourcesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create founding_source" do
     assert_difference('FoundingSource.count') do
-      post founding_sources_url, params: { founding_source: {  } }
+      post founding_sources_url, params: { founding_source: { account_id: @founding_source.account_id, balance: @founding_source.balance, name: @founding_source.name } }
     end
 
     assert_redirected_to founding_source_path(FoundingSource.last)
@@ -34,7 +34,7 @@ class FoundingSourcesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update founding_source" do
-    patch founding_source_url(@founding_source), params: { founding_source: {  } }
+    patch founding_source_url(@founding_source), params: { founding_source: { account_id: @founding_source.account_id, balance: @founding_source.balance, name: @founding_source.name } }
     assert_redirected_to founding_source_path(@founding_source)
   end
 

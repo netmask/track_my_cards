@@ -25,6 +25,9 @@ class FoundingSourcesController < ApplicationController
   # POST /founding_sources.json
   def create
     @founding_source = FoundingSource.new(founding_source_params)
+    @founding_source.account = Account.new name: @founding_source.name,
+                                           balance: @founding_source.balance,
+                                           nature: founding_source_params[:nature]
 
     respond_to do |format|
       if @founding_source.save
@@ -69,6 +72,6 @@ class FoundingSourcesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def founding_source_params
-      params[:founding_source]
+      params.require(:founding_source).permit(:account_id, :name, :balance, :nature)
     end
 end

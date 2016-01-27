@@ -22,6 +22,7 @@ gem 'jbuilder', '~> 2.0'
 # Use Puma as the app server
 gem 'puma'
 
+gem 'simple_form'
 
 gem 'haml'
 
@@ -35,7 +36,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'erb2haml'
   gem 'byebug'
-  
+
 end
 
 group :development do
